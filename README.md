@@ -17,6 +17,7 @@ Instantiate(prefab).AddComponent<Cat>()
   .SetYield(new WaitForSeconds(1f))
   .Execute(m => Destroy(m.gameObject)); // Destroy after finish.
 ```  
+```
 ------------------------------------
 start
 meow!
