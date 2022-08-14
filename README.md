@@ -34,7 +34,7 @@ Instantiate(prefab).AddComponent<Cat>()
   .SetAction(() => Debug.Log(count))
   .SetAction(() => count++)
   .SetYield(new WaitForSeconds(1f))
- .CreateNode(1, (false, 1, () => true))
+ .CreateNode(1, (false, 0, () => true))
   .SetAction(c => c.Sound())
  Execute(0);
 ```
