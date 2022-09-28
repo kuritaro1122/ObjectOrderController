@@ -23,7 +23,7 @@ namespace ObjectOrderControl {
         public Coroutine IExecute(T _self) {
             if (IGetIsNotSync()) {
                 IStartCoroutine(IGetOrder(_self));
-                return null;
+                return null; // todo 必要か
             } else return IStartCoroutine(IGetOrder(_self));
         }
         /// <summary>
@@ -35,7 +35,8 @@ namespace ObjectOrderControl {
                 return null;
             } else if (enumerator == null) return null;
             Coroutine coroutine = this.controller.StartCoroutine(enumerator);
-            this.coroutines.Add(coroutine);
+            //this.coroutines.Add(coroutine);
+            AddCoroutine(coroutine);
             return coroutine;
         }
         public void IStopAllCoroutines() {
@@ -48,6 +49,9 @@ namespace ObjectOrderControl {
         }
         public void Init(ObjectOrderController<T> _controller) {
             this.controller = _controller;
+        }
+        private void AddCoroutine(Coroutine coroutine) {
+            this.coroutines.Add(coroutine);
         }
     }
 }
