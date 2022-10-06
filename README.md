@@ -64,9 +64,9 @@ class Hoge2 : ObjectOrderController<Hoge2> {
         base.CreateNode((int)State.Awake, nextIndex: (int)State.Stay)
         .SetAction(() => Debug.Log("Awake"))
         // Stay
-        base.CreateNode((int)State.Stay, loop: true, (Interrupt, (int)State.Attack, AttackCondition), (Interrupt, (int)State.Sleep), SleepCondition)
+        base.CreateNode((int)State.Stay, loop: true, (Interrupt, (int)State.Attack, AttackCondition), (Interrupt, (int)State.Sleep, SleepCondition))
         .SetAction(() => Debug.Log("buzz!!"))
-        .SetYield(new WaitForseCOnds(1f));
+        .SetYield(new WaitForSeconds(1f));
         // Attack
         base.CreateNode((int)Stay.Attack, (NoInterrupt, (int)State.Stay, s => !AttackCondition(s)))
         .SetCoroutine(AttackCoroutine)
