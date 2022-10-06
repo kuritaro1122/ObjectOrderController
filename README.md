@@ -68,7 +68,7 @@ class Hoge2 : ObjectOrderController<Hoge2> {
         .SetAction(() => Debug.Log("buzz!!"))
         .SetYield(new WaitForSeconds(1f));
         // Attack
-        base.CreateNode((int)Stay.Attack, (NoInterrupt, (int)State.Stay, s => !AttackCondition(s)))
+        base.CreateNode((int)State.Attack, (NoInterrupt, (int)State.Stay, s => !AttackCondition(s)))
         .SetCoroutine(AttackCoroutine)
 
         base.Execute((int)State.Sleep); // First select node index.
