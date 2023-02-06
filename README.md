@@ -74,7 +74,7 @@ class Hoge2 : ObjectOrderController<Hoge2> {
         base.Execute((int)State.Sleep); // First select node index.
     }
 
-    static void AttackCoroutine(Hoge2 self) {
+    static IEnumerator AttackCoroutine(Hoge2 self) {
         Debug.Log("Attack1");
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Attack2");
